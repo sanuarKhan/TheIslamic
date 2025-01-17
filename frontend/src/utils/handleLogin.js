@@ -1,4 +1,5 @@
-import { api } from "../api/config";
+import axios from "axios";
+// import { api } from "../api/config";
 
 const handleLogin = async (credentials) => {
   try {
@@ -9,7 +10,10 @@ const handleLogin = async (credentials) => {
       };
     }
 
-    const response = await api.post(`/api/v1/users/login`, credentials);
+    const response = await axios.post(
+      `https://theislamic.onrender.com/api/v1/users/login`,
+      credentials
+    );
     console.log(response);
 
     if (response.data?.refreshToken) {
