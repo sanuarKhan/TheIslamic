@@ -4,7 +4,8 @@
   "description": "\"this is islamic web that serves the islamic knowledge for the Muslim Umah\"",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [
     "Quran",
