@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://theislamic.onrender.com", // Backend server
+        target: import.meta.env.VITE_API_URL, // Backend server
         changeOrigin: true,
         secure: false,
       },

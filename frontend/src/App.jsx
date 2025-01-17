@@ -10,7 +10,6 @@ import Recite from "./pages/Recite";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { handleRegister } from "./utils/handleRegister";
-import { handleLogin } from "./utils/handleLogin";
 
 function App() {
   return (
@@ -23,9 +22,9 @@ function App() {
           <Route path="/quran/add" element={<AddVerse />} />
           <Route path="/quran/recite" element={<Recite />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/login" element={<Login />} />
           <Route
-            path="register"
+            path="/register"
             element={<Register onRegister={handleRegister} />}
           />
 

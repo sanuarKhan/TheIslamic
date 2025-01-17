@@ -31,10 +31,10 @@ const FilteringBer = ({ onFilter }) => {
   //   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-5 w-full flex justify-between gap-10">
-      <form className="flex justify-between items-end gap-16">
+    <div className="bg-white shadow-md rounded-lg p-3 sm:p-5 w-full">
+      <form className="flex flex-col lg:flex-row flex-wrap gap-4 lg:gap-6">
         {/* Surah Number */}
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full sm:w-[calc(50%-8px)] lg:w-auto">
           <label className="text-gray-600 mb-2">Surah Number</label>
           <input
             type="number"
@@ -45,7 +45,7 @@ const FilteringBer = ({ onFilter }) => {
         </div>
 
         {/* Ayah Number */}
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full sm:w-[calc(50%-8px)] lg:w-auto">
           <label className="text-gray-600 mb-2">Ayah Number</label>
           <input
             type="number"
@@ -56,7 +56,7 @@ const FilteringBer = ({ onFilter }) => {
         </div>
 
         {/* Keyword */}
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full sm:w-[calc(50%-8px)] lg:w-auto">
           <label className="text-gray-600 mb-2">Keyword</label>
           <input
             type="text"
@@ -67,7 +67,7 @@ const FilteringBer = ({ onFilter }) => {
         </div>
 
         {/* Theme */}
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full sm:w-[calc(50%-8px)] lg:w-auto">
           <label className="text-gray-600 mb-2">Theme</label>
           <select
             name="theme"
@@ -82,16 +82,16 @@ const FilteringBer = ({ onFilter }) => {
         </div>
 
         {/* Buttons */}
-        <div className="flex gap-10">
+        <div className="flex gap-3 sm:gap-4 w-full lg:w-auto mt-4 lg:mt-auto">
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+            className="flex-1 lg:flex-initial bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
           >
             Apply
           </button>
           <button
             type="button"
-            className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300"
+            className="flex-1 lg:flex-initial bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300"
           >
             Reset
           </button>
