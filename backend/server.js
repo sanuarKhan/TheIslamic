@@ -8,10 +8,12 @@ const quranRouters = require("./routes/quranRoutes");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  origin: process.env.CORS_ORIGIN,
-  credentials: true
-})); // Enable All CORS Requests
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
+  })
+); // Enable All CORS Requests
 
 // app.use("/api/auth", require("./routes/auth")); // Routes
 // app.use("/api/private", require("./routes/private")); // Routes
