@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import ParentComponent from "../filtering/Parent";
 import { getQuranData } from "../../api/api";
-
 export function QuranReader() {
   const [currentPage, setCurrentPage] = useState(1); // For pagination (if applicable)
   const [quranData, setQuranData] = useState([]);
 
   useEffect(() => {
+    console.log(getQuranData);
     async function fetchData() {
       try {
         const data = await getQuranData();
+        console.log(data);
         if (Array.isArray(data)) {
           setQuranData(data); // Expecting an array of verses
         } else {
