@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://the-islamic-backend.vercel.app/", // Backend server
+        target: "https://theislamic.onrender.com", // Backend server
         changeOrigin: true,
         secure: false,
       },
