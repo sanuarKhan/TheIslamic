@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ParentComponent from "../filtering/Parent";
+// import ParentComponent from "../filtering/Parent";
 import { getQuranData } from "../../api/api";
 export function QuranReader() {
   //const [currentPage, setCurrentPage] = useState(1); // For pagination (if applicable)
@@ -25,12 +25,12 @@ export function QuranReader() {
 
   return (
     <main
-      className="flex flex-col justify-start pt-8 pb-20 bg-red-50 overflow-hidden w-full px-4 sm:px-6 lg:px-8"
+      className="flex flex-col justify-start pt-8 pb-20  overflow-hidden w-full px-4 sm:px-6 lg:px-8"
       role="main"
     >
-      <ParentComponent />
+      {/* <ParentComponent /> */}
       <h1
-        className="mt-8 sm:mt-16 text-3xl sm:text-4xl lg:text-5xl font-semibold text-center text-black"
+        className="mt-8 sm:mt-16 text-3xl sm:text-4xl lg:text-5xl font-semibold text-center text-zinc-900"
         lang="ar"
         dir="rtl"
       >
@@ -40,7 +40,7 @@ export function QuranReader() {
         quranData.map((verse, index) => (
           <div
             key={index}
-            className="flex flex-col justify-end mt-4 sm:mt-7 w-full font-semibold text-start text-black px-2 sm:px-4"
+            className="flex flex-col justify-end mt-4 sm:mt-7 w-full font-semibold text-start text-zinc-300 px-2 sm:px-4"
             lang="ar"
             dir="rtl"
           >

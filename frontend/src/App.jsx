@@ -13,25 +13,27 @@ import { handleRegister } from "./utils/handleRegister";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+    <div className="w-full h-full bg-[url('/public/bg.jpg')] bg-cover bg-center bg-no-repeat">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
 
-          <Route path="/quran" element={<Quran />} />
-          <Route path="/quran/add" element={<AddVerse />} />
-          <Route path="/quran/recite" element={<Recite />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/register"
-            element={<Register onRegister={handleRegister} />}
-          />
+            <Route path="/quran" element={<Quran />} />
+            <Route path="/quran/add" element={<AddVerse />} />
+            <Route path="/quran/recite" element={<Recite />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/register"
+              element={<Register onRegister={handleRegister} />}
+            />
 
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </Router>
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

@@ -1,5 +1,6 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import GoLoginBtn from "./GoLoginBtn";
+import SearchBar from "./SearchBar";
 
 const Layout = () => {
   const location = useLocation();
@@ -9,10 +10,11 @@ const Layout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <header className="bg-blue-600 text-white p-4">
+      <header className=" text-white p-4">
         <nav className="flex justify-between items-center max-w-7xl mx-auto">
           <h1 className="text-xl font-bold">Quran Project</h1>
-          <ul className="flex space-x-4">
+          <ul className="flex space-x-8 items-center">
+            <SearchBar />
             <li>
               <Link to="/" className="hover:underline">
                 Home
@@ -33,7 +35,7 @@ const Layout = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow p-6 bg-gray-100">
+      <main className="flex-grow p-6">
         <Outlet />
       </main>
 
