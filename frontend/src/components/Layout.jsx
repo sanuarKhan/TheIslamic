@@ -14,7 +14,9 @@ const Layout = () => {
         <nav className="flex justify-between items-center max-w-7xl mx-auto">
           <h1 className="text-xl font-bold">Quran Project</h1>
           <ul className="flex space-x-8 items-center">
-            <SearchBar />
+            <div className="hidden md:block">
+              <SearchBar />
+            </div>
             <li>
               <Link to="/" className="hover:underline">
                 Home
@@ -32,6 +34,9 @@ const Layout = () => {
             </li> */}
           </ul>
         </nav>
+        <div className="md:hidden text-center w-full flex justify-center items-center">
+          <SearchBar />
+        </div>
       </header>
 
       {/* Main Content */}

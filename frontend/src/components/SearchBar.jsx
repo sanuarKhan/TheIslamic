@@ -1,10 +1,10 @@
 function SearchBar() {
   return (
-    <div className="flex w-full   rounded-ful max-md:px-5 max-md:mt-10 max-md:mr-0.5 max-md:max-w-full">
+    <div className="flex w-full justify-center items-center opacity-70   rounded-ful max-md:px-5 max-md:mt-10 max-md:mr-0.5 max-md:max-w-full">
       <div className="flex justify-center items-center  max-md:flex-col relative">
         <input
           type="search"
-          className="w-full relative py-2 bg-gray-400 opacity-80 rounded-full"
+          className="w-[300px] relative py-2 bg-gray-400 opacity-80 rounded-full"
           name=""
           id=""
         />
