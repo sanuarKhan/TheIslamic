@@ -12,6 +12,7 @@ const Login = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCredentials({ ...credentials, [name]: value });
+    // console.log(credentials.data);
     // Clear error when user starts typing
     if (error) setError("");
   };
@@ -22,6 +23,7 @@ const Login = () => {
     setError("");
 
     const result = await handleLogin(credentials);
+    console.log(result);
 
     if (result.success) {
       window.location.href = "/admin";
@@ -41,7 +43,7 @@ const Login = () => {
             {error}
           </div>
         )}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} method="POST">
           {/* Email */}
           <div className="mb-4">
             <label className="block text-gray-600 mb-2">Email</label>
