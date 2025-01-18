@@ -48,7 +48,7 @@ export function QuranReader() {
             <div className="shrink-0 self-start w-full h-1 border border-black border-solid" />
             {/* Verse Display */}
             <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-3.5 text-2xl sm:text-3xl lg:text-4xl">
-              <span className="flex-grow text-start" lang="ar" dir="rtl">
+              <span className=" text-start" lang="ar" dir="rtl">
                 {verse.arabicText}
               </span>
               <span className="px-4 sm:px-7 py-2 whitespace-nowrap rounded-full border border-black border-solid bg-zinc-300 bg-opacity-0">

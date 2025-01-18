@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import { addQuranData } from "../../api/api";
 
 const QuranForm = () => {
   const [formData, setFormData] = useState({
@@ -71,11 +71,8 @@ const QuranForm = () => {
     };
 
     try {
-      const response = await axios.post("/api/v1/quran/add", dataToSend, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await addQuranData(dataToSend);
+      console.log(response.success);
       setFormData({
         surah_name: {
           arabic: "",

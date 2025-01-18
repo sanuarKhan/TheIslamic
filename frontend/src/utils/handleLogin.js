@@ -1,7 +1,4 @@
-import axios from "axios";
-
-const API_URL =
-  import.meta.env.VITE_API_URL || "https://theislamic.onrender.com";
+import { login } from "../api/api.js";
 
 const handleLogin = async (credentials) => {
   try {
@@ -12,16 +9,7 @@ const handleLogin = async (credentials) => {
       };
     }
 
-    const response = await axios({
-      method: "POST",
-      url: `${API_URL}/api/v1/users/login`,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      data: credentials,
-      timeout: 30000,
-    });
+    const response = await login(credentials);
 
     if (response.data?.refreshToken) {
       localStorage.setItem("token", response.data.refreshToken);

@@ -1,8 +1,8 @@
-import axios from "axios";
+import { register } from "../api/api.js";
 
 const handleRegister = async (user) => {
   try {
-    const response = await axios.post("/api/v1/users/register", user);
+    await register(user);
     alert("Registration successful!");
     window.location.href = "/login";
   } catch (error) {

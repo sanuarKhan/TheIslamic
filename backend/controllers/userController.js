@@ -1,7 +1,10 @@
 const jwt = require("jsonwebtoken");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 const User = require("../models/User");
-const {generateToken, generateRefreshToken} = require('../auth/generateToken')
+const {
+  generateToken,
+  generateRefreshToken,
+} = require("../auth/generateToken");
 //Register User
 exports.registerUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -16,7 +19,7 @@ exports.registerUser = async (req, res) => {
     // Generate Tokens
     const accessToken = generateToken(user._id);
 
-    res.status(200).json({ success: true, accessToken});
+    res.status(200).json({ success: true, accessToken });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -47,8 +50,9 @@ exports.loginUser = async (req, res) => {
     const accessToken = generateToken(user._id);
     const refreshToken = generateRefreshToken(user._id);
 
-    res.status(200).json({success: true,
-      data: { accessToken, refreshToken }});
+    res
+      .status(200)
+      .json({ success: true, data: { accessToken, refreshToken } });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -65,18 +69,19 @@ exports.getUserProfile = async (req, res) => {
 };
 //Update User Profile
 
-
 exports.updateUserProfile = async (req, res) => {
   try {
     const userId = req.user?.id;
 
     if (!userId) {
-      return res.status(401).json({ success: false, message: 'Unauthorized' });
+      return res.status(401).json({ success: false, message: "Unauthorized" });
     }
 
     const user = await User.findById(userId);
     if (!user) {
-      return res.status(404).json({ success: false, message: 'User not found' });
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
     }
 
     // Check if email is being updated
@@ -85,7 +90,7 @@ exports.updateUserProfile = async (req, res) => {
       if (emailExists) {
         return res
           .status(400)
-          .json({ success: false, message: 'Email already in use' });
+          .json({ success: false, message: "Email already in use" });
       }
       user.email = req.body.email;
     }
@@ -130,7 +135,8 @@ exports.deleteUserProfile = async (req, res) => {
 exports.refreshToken = async (req, res) => {
   const { refreshToken } = req.body;
 
-  if (!refreshToken) return res.status(401).json({ message: 'Refresh token is missing' });
+  if (!refreshToken)
+    return res.status(401).json({ message: "Refresh token is missing" });
 
   try {
     const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
@@ -138,6 +144,12 @@ exports.refreshToken = async (req, res) => {
 
     res.status(200).json({ accessToken: newAccessToken });
   } catch (err) {
-    res.status(401).json({ message: 'Invalid or expired refresh token' });
+    res.status(401).json({ message: "Invalid or expired refresh token" });
   }
+};
+
+exports.logout = async (req, res) => {
+  res.clearCookie("accessToken"); // Clear access token cookie
+  res.clearCookie("refreshToken"); // Clear refresh token cookie
+  res.status(200).json({ success: true, message: "Logout successful" });
 };
